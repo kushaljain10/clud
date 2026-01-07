@@ -87,7 +87,7 @@ app.post("/v1/chat", async (req, res) => {
       headers: {
         Authorization: `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": process.env.REFERER || "http://localhost:5175/",
+        "HTTP-Referer": process.env.REFERER || "http://localhost:5174/",
         "X-Title": process.env.X_TITLE || "clod",
       },
       body: JSON.stringify(payload),
@@ -108,12 +108,10 @@ app.post("/v1/chat", async (req, res) => {
     const reply =
       choice?.message?.content ||
       fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
-    return res
-      .status(200)
-      .json({
-        text: reply,
-        meta: { source: "openrouter", model: data?.model || model },
-      });
+    return res.status(200).json({
+      text: reply,
+      meta: { source: "openrouter", model: data?.model || model },
+    });
   } catch (err) {
     console.error("server error:", err);
     const fallback =
