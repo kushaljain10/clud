@@ -90,16 +90,12 @@ function App() {
         )}
 
         <footer className="contract-bar" aria-label="Contract address">
-          <span className="contract-text">
-            CA: 2RNWP6pPv2oix4JTsagP61trbPGifJVJDCWVd12opump
-          </span>
+          <span className="contract-text">CA: coming soon</span>
           <button
             className="copy-btn"
             aria-label="Copy contract address"
             onClick={() => {
-              navigator.clipboard.writeText(
-                "2RNWP6pPv2oix4JTsagP61trbPGifJVJDCWVd12opump"
-              );
+              navigator.clipboard.writeText("wait for 5 mins bro");
               showToast("Contract address copied");
             }}
           >
