@@ -33,7 +33,7 @@ export async function generateShareImage(thread, options = {}) {
   const avatarSize = 36;
   const avatarRadius = avatarSize / 2;
   const avatarGap = 10;
-  const scale = options.scale || Math.min(2, window.devicePixelRatio || 2);
+  const scale = options.scale ?? 2;
 
   const layoutCanvas = document.createElement("canvas");
   const lctx = layoutCanvas.getContext("2d");
