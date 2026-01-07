@@ -140,8 +140,9 @@ body {
 
 .input-card {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: flex-end;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-items: stretch;
   gap: 12px;
   padding: 14px;
   background: var(--panel);
@@ -149,12 +150,8 @@ body {
   border-radius: 28px;
   box-shadow: var(--shadow);
 }
-.input-left,
-.input-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.input-top { display: block; }
+.input-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .input-textarea {
   width: 100%;
   resize: none;
@@ -376,11 +373,14 @@ body {
   box-shadow: var(--shadow);
 }
 .contract-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: calc(10px + env(safe-area-inset-bottom)) 14px;
   background: var(--panel);
   border-top: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -435,4 +435,29 @@ body {
 .icon-btn.active {
   background: #1b2130;
   border-color: #223;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .topbar { padding: 12px 16px; gap: 10px; }
+  .brand { gap: 8px; }
+  .logo { height: 3rem; }
+  .brand-name { font-size: 1.75rem; }
+
+  .greeting { padding: 0 12px; gap: 12px; }
+  .headline { font-size: 2.25rem; }
+  .tagline { font-size: 12px; }
+  .center-input { width: 100%; max-width: calc(100% - 24px); }
+
+  .thread { padding: 20px 0 8px; }
+  .chat-thread { padding: 0 12px; }
+  .dock-input { padding: 12px; }
+
+  .input-card { grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-radius: 22px; }
+  .input-left { display: none; }
+  .input-textarea { font-size: 16px; }
+  .send-btn { width: 34px; height: 34px; }
+
+  .contract-text { font-size: 12px; }
+  .toast { bottom: 72px; left: 12px; }
 }

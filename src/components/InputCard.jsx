@@ -15,16 +15,17 @@ export function InputCard({ placeholder, onSend, modelLabel }) {
 
   return (
     <div className="input-card" aria-label="Message input">
-      <div className="input-left" />
-      <textarea
-        className="input-textarea"
-        rows={1}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <div className="input-right">
+      <div className="input-top">
+        <textarea
+          className="input-textarea"
+          rows={1}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+      </div>
+      <div className="input-bottom">
         <button className="model-select" aria-label="Model selector">
           <span className="model-label">{modelLabel}</span>
           <ChevronDown size={16} />
