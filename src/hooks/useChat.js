@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { respondTo } from '../lib/respond'
+import { chatRequest } from '../lib/api'
 import { loadThreads, saveThreads } from '../lib/storage'
 import { showToast } from '../components/Toast'
 
@@ -37,9 +38,21 @@ export function useChat() {
       setThreads((cur) => cur.map((t) => t.id === id ? { ...t, title: t.messages.length === 0 ? titleFrom(text) : t.title, messages: [...t.messages, { id: newId(), role: 'user', text }], typing: true } : t))
     }
 
+    const useBackend = !!import.meta.env.VITE_CLIENT_KEY
+    if (useBackend) {
+      try {
+        const current = threads.find((t) => t.id === id)
+        const convo = (current?.messages || []).map((m) => ({ role: m.role, content: m.text }))
+        const data = await chatRequest({ messages: [...convo, { role: 'user', content: text }] })
+        setThreads((cur) => cur.map((t) => t.id === id ? { ...t, messages: [...t.messages, { id: newId(), role: 'assistant', text: data.text, meta: data.meta }], typing: false } : t))
+        return
+      } catch (err) {
+        showToast('backend failed; using mock reply')
+      }
+    }
+
     const res = respondTo(text, chaosMode)
     await new Promise((r) => setTimeout(r, res.meta.delay))
-
     setThreads((cur) => cur.map((t) => t.id === id ? { ...t, messages: [...t.messages, { id: newId(), role: 'assistant', text: res.text, meta: res.meta }], typing: false } : t))
   }
 

@@ -1,6 +1,6 @@
-# Clod – Chaotic Chat Parody (React + Vite)
+# clod – chaotic chat parody (react + vite)
 
-Clod is a parody of a Claude-style chatbot UI: dark, minimal, and slightly unhinged. No backend, no real AI, just rule‑based mock responses with occasional glitch flavour.
+clod is a parody of a claude-style chatbot ui: dark, minimal, and slightly unhinged. frontend ships with mock responses; optional backend below connects to openrouter.
 
 Tech
 
@@ -18,28 +18,67 @@ Features
 - Settings and About panels
 - Accessibility: aria labels, focus outlines, reasonable contrast
 
-Install
+install
 
 ```
 npm install
 ```
 
-Run (dev)
+run (dev)
 
 ```
 npm run dev
 ```
 
-Open the local URL shown in the terminal (usually `http://localhost:5174/`).
+open the local url shown in the terminal (usually `http://localhost:5174/`).
 
-Build
+build
 
 ```
 npm run build
 ```
 
-Notes
+notes
 
-- This is a parody project. Keep humour friendly and avoid hateful content.
-- Chaos Mode adds playful glitch text. It’s still readable.
-- There is no backend; responses are mocked via simple keyword triggers.
+- this is a parody project. keep humour friendly and avoid hateful content.
+- chaos mode adds playful glitch text. it’s still readable.
+- optional backend
+
+## backend server (optional)
+
+the `server/` folder contains a small express api that forwards chat requests to openrouter.
+
+features
+- bearer auth via `CLIENT_API_KEYS`
+- cors restricted to `ALLOWED_ORIGINS`
+- playful system prompt (derpy, silly, non-harmful)
+- fallback responses if openrouter fails
+
+setup
+1. create `.env` in `server/` based on `.env.example`.
+2. install deps: `cd server && npm install`.
+3. run: `npm start` (defaults to `http://localhost:8787`).
+
+api
+- `POST /v1/chat`
+  - headers: `authorization: bearer <client_key>`
+  - body:
+    ```json
+    {
+      "model": "openrouter/auto",
+      "max_tokens": 200,
+      "messages": [
+        { "role": "user", "content": "say something silly" }
+      ]
+    }
+    ```
+  - response: `{ text: string, meta: { source: 'openrouter' | 'fallback', model?: string } }`
+- `GET /v1/health` → `{ ok: true }`
+
+example curl
+```
+curl -X POST http://localhost:8787/v1/chat \
+  -H 'content-type: application/json' \
+  -H 'authorization: bearer dev-key-1' \
+  -d '{"messages":[{"role":"user","content":"hello there"}]}'
+```
