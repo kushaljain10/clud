@@ -23,6 +23,7 @@ function App() {
     openAbout,
     ui,
     closeModals,
+    goHome,
     showToast,
   } = useChat();
 
@@ -44,7 +45,13 @@ function App() {
     <div className="app-root">
       <main className="app-main" aria-live="polite">
         <header className="topbar">
-          <div className="brand">
+          <div
+            className="brand"
+            role="button"
+            tabIndex={0}
+            aria-label="go to homepage"
+            onClick={goHome}
+          >
             <img
               src="/logo.png"
               alt={`${copy.appName} logo`}
@@ -59,6 +66,7 @@ function App() {
                 src="/icon.png"
                 alt={`${copy.appName} icon`}
                 className="icon"
+                id="hey-icon"
                 style={{ width: 48, height: 48 }}
               />
               <h1 className="headline" aria-label={`Hey there, ${nickname}`}>

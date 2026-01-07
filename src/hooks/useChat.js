@@ -58,6 +58,10 @@ export function useChat() {
   const openSettings = () => setUi((u) => ({ ...u, settingsOpen: true }))
   const openAbout = () => setUi((u) => ({ ...u, aboutOpen: true }))
   const closeModals = () => setUi({ historyOpen: false, settingsOpen: false, aboutOpen: false })
+  const goHome = () => {
+    setActiveId(null)
+    closeModals()
+  }
 
   return {
     threads,
@@ -74,6 +78,7 @@ export function useChat() {
     openAbout,
     ui,
     closeModals,
+    goHome,
     showToast,
   }
 }
