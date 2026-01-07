@@ -5,6 +5,7 @@ import { ToastHost } from "./components/Toast";
 import { useChat } from "./hooks/useChat";
 import "./index.css";
 import { Copy } from "lucide-react";
+import copy from "./lib/copy.json";
 
 function App() {
   const {
@@ -27,23 +28,11 @@ function App() {
 
   const contentRef = useRef(null);
 
-  const nicknames = [
-    "silly goose",
-    "chaos goblin",
-    "keyboard warrior",
-    "space cadet",
-    "tryhard",
-    "gremlin",
-    "goober",
-    "clown",
-    "meme machine",
-    "rookie",
-  ];
-
-  const nickname = useMemo(() => {
-    const i = Math.floor(Math.random() * nicknames.length);
-    return nicknames[i];
-  }, []);
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const placeholder = useMemo(() => pick(copy.inputPlaceholders), []);
+  const modelLabel = useMemo(() => pick(copy.modelLabels), []);
+  const tagline = useMemo(() => pick(copy.taglines), []);
+  const nickname = useMemo(() => pick(copy.insultNicknames), []);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -68,27 +57,25 @@ function App() {
                 Hey there, {nickname}
               </h1>
             </div>
-            <p className="tagline">
-              Brain currently under construction. Please lower expectations.
-            </p>
+            <p className="tagline">{tagline}</p>
             <div className="center-input" role="search">
               <InputCard
-                placeholder="How can I mildly confuse you today?"
+                placeholder={placeholder}
                 onSend={(text) => sendMessage(text)}
-                modelLabel="Clud 0.1 (unstable)"
+                modelLabel={modelLabel}
               />
             </div>
           </section>
         ) : (
           <section className="chat-state">
             <div className="thread" ref={contentRef}>
-              <ChatThread thread={activeThread} />
+              <ChatThread thread={activeThread} chaosMode={chaosMode} />
             </div>
             <div className="dock-input">
               <InputCard
-                placeholder="How can I mildly confuse you today?"
+                placeholder={placeholder}
                 onSend={(text) => sendMessage(text)}
-                modelLabel="Clud 0.1 (unstable)"
+                modelLabel={modelLabel}
               />
             </div>
           </section>
@@ -162,7 +149,7 @@ function App() {
                 className="btn danger"
                 onClick={() => {
                   if (
-                    window.confirm("Delete all threads? This cannot be undone.")
+                    window.confirm(`${copy.clearHistory.title}\n\n${copy.clearHistory.body}`)
                   ) {
                     clearAllThreads(true);
                     closeModals();
@@ -201,10 +188,16 @@ function App() {
                   id="chaos-toggle"
                   type="checkbox"
                   checked={chaosMode}
-                  onChange={() => setChaosMode((v) => !v)}
+                  onChange={() =>
+                    setChaosMode((v) => {
+                      const next = !v;
+                      showToast(next ? copy.toasts.chaosOn : copy.toasts.chaosOff);
+                      return next;
+                    })
+                  }
                 />
               </div>
-              <p className="muted">No backend. No real AI. Just vibes.</p>
+              <p className="muted">{copy.disclaimer}</p>
             </div>
             <footer className="modal-footer">
               <button className="btn subtle" onClick={closeModals}>
@@ -234,14 +227,10 @@ function App() {
               </button>
             </header>
             <div className="modal-body">
-              <p>
-                Clud is a parody of a fancy chatbot. It is proudly unhinged,
-                occasionally glitchy, and entirely fake. Any resemblance to
-                functioning intelligence is coincidental.
-              </p>
-              <p className="muted">
-                Disclaimer: Keep humour friendly. No slurs, no hate.
-              </p>
+              {copy.about.map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+              <p className="muted">{copy.disclaimer}</p>
             </div>
             <footer className="modal-footer">
               <button className="btn subtle" onClick={closeModals}>

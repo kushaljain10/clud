@@ -1,4 +1,8 @@
-export function ChatThread({ thread }) {
+import copy from '../lib/copy.json'
+
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)]
+
+export function ChatThread({ thread, chaosMode }) {
   if (!thread) return null
   return (
     <div className="chat-thread">
@@ -15,7 +19,7 @@ export function ChatThread({ thread }) {
           <span className="dot" />
           <span className="dot" />
           <span className="dot" />
-          <span className="typing-label">Clud is thinking… or crashing…</span>
+          <span className="typing-label">{pick(chaosMode ? copy.typingChaos : copy.typing)}</span>
         </div>
       )}
     </div>

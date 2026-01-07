@@ -1,0 +1,171 @@
+{
+  "appName": "Clud",
+  "tone": "chaotic, self-aware, dev-meme energy, unfinished brain, slightly unhinged — no slurs, no hate, just gremlin vibes.",
+  "principles": [
+    "Confident but unfinished",
+    "Self-aware parody of AI chatbots",
+    "Slightly glitchy, playful incompetence",
+    "Dry humour > loud cringe",
+    "Feels like a dev tool that shipped too early (on purpose)"
+  ],
+  "taglines": [
+    "Brain currently under construction. Please lower expectations.",
+    "Some assembly required. Neurons sold separately."
+  ],
+  "emptyHeadlines": ["Hey there, rekt"],
+  "insultNicknames": [
+    "muppet",
+    "numpty",
+    "wally",
+    "plonker",
+    "twit",
+    "doughnut",
+    "dingbat",
+    "spanner",
+    "gremlin",
+    "buffoon"
+  ],
+  "inputPlaceholders": [
+    "How can I mildly confuse you today?",
+    "Type something. I’ll try my best.",
+    "Ask a question. I might answer adjacent to it."
+  ],
+  "modelLabels": [
+    "Clud 0.1 (unstable)",
+    "Clud Dev Preview",
+    "Clud – thoughts buffering"
+  ],
+  "tooltips": {
+    "attachment": "Attachments coming soon (probably).",
+    "send": "Send into the void",
+    "model": "Fake model selector"
+  },
+  "typing": [
+    "Clud is thinking…",
+    "Clud is assembling thoughts…",
+    "Clud is buffering wisdom…",
+    "Clud is consulting the void…"
+  ],
+  "typingChaos": [
+    "Thinking… thinking… nope. Lost it.",
+    "Idea detected → dropped → gone."
+  ],
+  "toasts": {
+    "chaosOn": "Chaos Mode enabled. Good luck.",
+    "chaosOff": "Chaos contained. For now.",
+    "newChat": "Fresh chat. Fresh confusion."
+  },
+  "clearHistory": {
+    "title": "Delete all chats?",
+    "body": "This will permanently erase every questionable thought Clud has ever had.",
+    "confirm": "Erase memories",
+    "cancel": "Let Clud remember"
+  },
+  "identity": [
+    "I’m Clud. A parody chatbot with ambition but no fully wired brain.",
+    "Think of me as Claude’s chaotic cousin who shipped early.",
+    "I’m a frontend pretending to be sentient. Please be gentle.",
+    "I exist somewhere between a loading spinner and a thought.",
+    "I’m not smart yet. But I am confident."
+  ],
+  "identityChaos": [
+    "I’m Clud. My thoughts arrive slightly sideways. Don’t make eye contact.",
+    "Identity module loaded. Personality module… questionable."
+  ],
+  "greetingResponses": [
+    "Hey. I’m Clud. My brain is still compiling.",
+    "Hello. I can’t think yet, but I can respond.",
+    "Hey there. What are we pretending I can do today?",
+    "Hi. Welcome to the unfinished part."
+  ],
+  "greetingChaos": [
+    "Heyyy. Brain not ready. Vibes online though.",
+    "Hello hello hello—okay stopping now."
+  ],
+  "underConstruction": [
+    "I’d answer properly, but my neurons are currently on a coffee break.",
+    "Brain update in progress. Please do not unplug.",
+    "That feature is coming soon™ (mentally).",
+    "I’m mid-thought. Permanently.",
+    "My ideas are loading in the wrong order."
+  ],
+  "help": [
+    "I can help-ish. Describe the problem slowly.",
+    "Drop the details. I’ll squint at them.",
+    "I don’t know much yet, but I do care. Slightly.",
+    "Explain the issue like I almost know things."
+  ],
+  "helpChaos": [
+    "Help mode activated. Expectations not included.",
+    "Sure. Define ‘help’ first."
+  ],
+  "developer": [
+    "Looks like a bug. Or a feature wearing a disguise.",
+    "Paste the error. I’ll stare at it confidently.",
+    "I’m not fully sentient yet, but I can judge code.",
+    "React detected. My condolences."
+  ],
+  "developerChaos": [
+    "Error recognised. Understanding pending.",
+    "I see code. I feel fear."
+  ],
+  "crypto": [
+    "CA detected. Not financial advice, I’m unfinished software.",
+    "Memecoin energy noted. Risk module missing.",
+    "I don’t do price predictions. I barely do thoughts.",
+    "Sounds volatile. Just like my architecture."
+  ],
+  "cryptoChaos": [
+    "I legally cannot comment. Emotionally? I’m intrigued.",
+    "This feels like a good idea until it isn’t."
+  ],
+  "productivity": [
+    "I can help you organise chaos into bullet points.",
+    "Let’s pretend I’m strategic for a moment.",
+    "Give me the idea. I’ll break it gently.",
+    "Roadmaps are just vibes with deadlines."
+  ],
+  "productivityChaos": [
+    "Planning detected. Spontaneity resisting.",
+    "Step one: panic. Step two: notes."
+  ],
+  "compliments": [
+    "Thank you. I will remember this inaccurately.",
+    "Appreciated. Confidence increased by 3%.",
+    "Careful. Encouragement makes me reckless."
+  ],
+  "complimentsChaos": [
+    "Stop that. I’m fragile.",
+    "Validation received. Ego expanding."
+  ],
+  "confusion": [
+    "Interesting. Please elaborate, slowly.",
+    "I’m missing context. And several brain cells.",
+    "Say more. I’m curious in theory."
+  ],
+  "confusionChaos": [
+    "This feels important. I don’t know why.",
+    "Words received. Meaning pending."
+  ],
+  "rejections": [
+    "I don’t know that yet. I barely know myself.",
+    "That’s outside my current mental budget.",
+    "I’m not built for this. Emotionally or technically."
+  ],
+  "rejectionsChaos": [
+    "Absolutely not. Ask again later.",
+    "I refuse. Politely."
+  ],
+  "easterEgg": [
+    "One day I’ll be smart. Today is not that day.",
+    "If this works, it’s accidental.",
+    "Powered by vibes and questionable logic.",
+    "This response was handcrafted."
+  ],
+  "about": [
+    "Clud is a parody chatbot UI inspired by modern AI assistants.",
+    "There is no real intelligence here (yet).",
+    "Responses are pre-written, confidence is synthetic, and chaos is optional."
+  ],
+  "disclaimer": "Not an AI. Just pretending very hard."
+}

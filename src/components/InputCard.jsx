@@ -26,13 +26,14 @@ export function InputCard({ placeholder, onSend, modelLabel }) {
         />
       </div>
       <div className="input-bottom">
-        <button className="model-select" aria-label="Model selector">
+        <button className="model-select" aria-label="Model selector" title="Fake model selector">
           <span className="model-label">{modelLabel}</span>
           <ChevronDown size={16} />
         </button>
         <button
           className="send-btn"
           aria-label="Send"
+          title="Send into the void"
           onClick={() => {
             if (value.trim()) {
               onSend(value.trim())
