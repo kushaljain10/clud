@@ -11,7 +11,7 @@ export function useChat() {
   const [threads, setThreads] = useState(loadThreads())
   const [activeId, setActiveId] = useState(threads[0]?.id || null)
   const [chaosMode, setChaosMode] = useState(false)
-  const [ui, setUi] = useState({ historyOpen: false, settingsOpen: false, aboutOpen: false })
+  const [ui, setUi] = useState({ historyOpen: false, settingsOpen: false, aboutOpen: false, shareOpen: false })
 
   useEffect(() => { saveThreads(threads) }, [threads])
 
@@ -26,6 +26,14 @@ export function useChat() {
   }
 
   const sendMessage = async (text) => {
+    // prevent sending while current thread is typing
+    if (activeId) {
+      const current = threads.find((t) => t.id === activeId)
+      if (current?.typing) {
+        showToast('wait for the previous reply')
+        return
+      }
+    }
     let id = activeId
     if (!id) {
       const tId = newId()
@@ -70,7 +78,8 @@ export function useChat() {
   const openHistory = () => setUi((u) => ({ ...u, historyOpen: true }))
   const openSettings = () => setUi((u) => ({ ...u, settingsOpen: true }))
   const openAbout = () => setUi((u) => ({ ...u, aboutOpen: true }))
-  const closeModals = () => setUi({ historyOpen: false, settingsOpen: false, aboutOpen: false })
+  const openShare = () => setUi((u) => ({ ...u, shareOpen: true }))
+  const closeModals = () => setUi({ historyOpen: false, settingsOpen: false, aboutOpen: false, shareOpen: false })
   const goHome = () => {
     setActiveId(null)
     closeModals()
@@ -92,6 +101,7 @@ export function useChat() {
     ui,
     closeModals,
     goHome,
+    openShare,
     showToast,
   }
 }

@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { ChevronDown, ArrowUp } from 'lucide-react'
-export function InputCard({ placeholder, onSend, modelLabel }) {
+export function InputCard({ placeholder, onSend, modelLabel, disabled = false }) {
   const [value, setValue] = useState('')
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
+      if (disabled) return
       if (value.trim()) {
         onSend(value.trim())
         setValue('')
@@ -26,7 +27,7 @@ export function InputCard({ placeholder, onSend, modelLabel }) {
         />
       </div>
       <div className="input-bottom">
-        <button className="model-select" aria-label="Model selector" title="Fake model selector">
+        <button className="model-select" aria-label="Model selector" title="Fake model selector" disabled={disabled}>
           <span className="model-label">{modelLabel}</span>
           <ChevronDown size={16} />
         </button>
@@ -34,7 +35,9 @@ export function InputCard({ placeholder, onSend, modelLabel }) {
           className="send-btn"
           aria-label="Send"
           title="Send into the void"
+          disabled={disabled}
           onClick={() => {
+            if (disabled) return
             if (value.trim()) {
               onSend(value.trim())
               setValue('')

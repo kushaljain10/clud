@@ -68,6 +68,9 @@ body {
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
+.topbar-actions {
+  margin-left: auto;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -202,6 +205,10 @@ body {
 }
 .send-btn:hover {
   background: #263147;
+}
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .dock-input {
   position: sticky;
@@ -338,6 +345,18 @@ body {
 }
 .modal-body {
   padding: 16px;
+}
+.modal-body.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.share-img {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
 }
 .modal-footer {
   display: flex;

@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { InputCard } from "./components/InputCard";
 import { ChatThread } from "./components/ChatThread";
 import { ToastHost } from "./components/Toast";
 import { useChat } from "./hooks/useChat";
 import "./index.css";
-import { Copy } from "lucide-react";
+import { Copy, Share2 as ShareIcon } from "lucide-react";
 import copy from "./lib/copy.json";
+import { generateShareImage } from "./lib/shareImage";
 
 function App() {
   const {
@@ -24,10 +25,12 @@ function App() {
     ui,
     closeModals,
     goHome,
+    openShare,
     showToast,
   } = useChat();
 
   const contentRef = useRef(null);
+  const [shareUrl, setShareUrl] = useState(null);
 
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const placeholder = useMemo(() => pick(copy.inputPlaceholders), []);
@@ -58,6 +61,26 @@ function App() {
               className="logo"
             />
           </div>
+          {isChatActive && (
+            <div className="topbar-actions">
+              <button
+                className="icon-btn"
+                aria-label="share"
+                title="share"
+                onClick={async () => {
+                  try {
+                    const url = await generateShareImage(activeThread);
+                    setShareUrl(url);
+                    openShare();
+                  } catch (e) {
+                    showToast("failed to generate image");
+                  }
+                }}
+              >
+                <ShareIcon size={18} />
+              </button>
+            </div>
+          )}
         </header>
         {!isChatActive ? (
           <section className="greeting">
@@ -79,6 +102,7 @@ function App() {
                 placeholder={placeholder}
                 onSend={(text) => sendMessage(text)}
                 modelLabel={modelLabel}
+                disabled={false}
               />
             </div>
           </section>
@@ -92,6 +116,7 @@ function App() {
                 placeholder={placeholder}
                 onSend={(text) => sendMessage(text)}
                 modelLabel={modelLabel}
+                disabled={!!activeThread?.typing}
               />
             </div>
           </section>
@@ -255,6 +280,75 @@ function App() {
             <footer className="modal-footer">
               <button className="btn subtle" onClick={closeModals}>
                 Close
+              </button>
+            </footer>
+          </div>
+        </div>
+      )}
+
+      {ui.shareOpen && (
+        <div className="modal-backdrop" onClick={closeModals}>
+          <div
+            className="modal"
+            role="dialog"
+            aria-label="share image"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <header className="modal-header">
+              <h2>share your chat</h2>
+              <button
+                className="icon-btn"
+                aria-label="Close"
+                onClick={closeModals}
+              >
+                ✕
+              </button>
+            </header>
+            <div className="modal-body share">
+              {shareUrl ? (
+                <img src={shareUrl} alt="chat snapshot" className="share-img" />
+              ) : (
+                <p className="muted">generating…</p>
+              )}
+            </div>
+            <footer className="modal-footer">
+              <button
+                className="btn"
+                onClick={() => {
+                  if (!shareUrl) return;
+                  const a = document.createElement("a");
+                  a.href = shareUrl;
+                  a.download = `clod-chat-${Date.now()}.png`;
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                }}
+              >
+                download
+              </button>
+              <button
+                className="btn subtle"
+                onClick={async () => {
+                  if (
+                    !shareUrl ||
+                    !navigator.clipboard ||
+                    !window.ClipboardItem
+                  ) {
+                    showToast("clipboard image not supported");
+                    return;
+                  }
+                  try {
+                    const blob = await (await fetch(shareUrl)).blob();
+                    await navigator.clipboard.write([
+                      new window.ClipboardItem({ "image/png": blob }),
+                    ]);
+                    showToast("image copied");
+                  } catch (e) {
+                    showToast("copy failed");
+                  }
+                }}
+              >
+                copy
               </button>
             </footer>
           </div>
