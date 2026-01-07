@@ -121,6 +121,7 @@ body {
 .tagline {
   color: var(--muted);
   font-size: 13px;
+  margin-top: 0;
 }
 .center-input {
   width: 680px;
@@ -150,8 +151,15 @@ body {
   border-radius: 28px;
   box-shadow: var(--shadow);
 }
-.input-top { display: block; }
-.input-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.input-top {
+  display: block;
+}
+.input-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 .input-textarea {
   width: 100%;
   resize: none;
@@ -439,25 +447,67 @@ body {
 
 /* Mobile responsiveness */
 @media (max-width: 640px) {
-  .topbar { padding: 12px 16px; gap: 10px; }
-  .brand { gap: 8px; }
-  .logo { height: 3rem; }
-  .brand-name { font-size: 1.75rem; }
+  .topbar {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .logo {
+    height: 3rem;
+  }
+  .brand-name {
+    font-size: 1.75rem;
+  }
 
-  .greeting { padding: 0 12px; gap: 12px; }
-  .headline { font-size: 2.25rem; }
-  .tagline { font-size: 12px; }
-  .center-input { width: 100%; max-width: calc(100% - 24px); }
+  .greeting {
+    padding: 0 12px;
+    gap: 12px;
+  }
+  .headline {
+    font-size: 2.25rem;
+  }
+  .tagline {
+    font-size: 12px;
+  }
+  .center-input {
+    width: 100%;
+    max-width: calc(100% - 24px);
+  }
 
-  .thread { padding: 20px 0 8px; }
-  .chat-thread { padding: 0 12px; }
-  .dock-input { padding: 12px; }
+  .thread {
+    padding: 20px 0 8px;
+  }
+  .chat-thread {
+    padding: 0 12px;
+  }
+  .dock-input {
+    padding: 12px;
+  }
 
-  .input-card { grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-radius: 22px; }
-  .input-left { display: none; }
-  .input-textarea { font-size: 16px; }
-  .send-btn { width: 34px; height: 34px; }
+  .input-card {
+    /* grid-template-columns: 1fr auto; */
+    gap: 10px;
+    padding: 12px;
+    border-radius: 22px;
+  }
+  .input-left {
+    display: none;
+  }
+  .input-textarea {
+    font-size: 14px;
+  }
+  .send-btn {
+    width: 34px;
+    height: 34px;
+  }
 
-  .contract-text { font-size: 12px; }
-  .toast { bottom: 72px; left: 12px; }
+  .contract-text {
+    font-size: 12px;
+  }
+  .toast {
+    bottom: 72px;
+    left: 12px;
+  }
 }

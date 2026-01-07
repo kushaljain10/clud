@@ -45,16 +45,24 @@ function App() {
       <main className="app-main" aria-live="polite">
         <header className="topbar">
           <div className="brand">
-            <img src="/logo.png" alt="Clud logo" className="logo" />
-            <span className="brand-name">Clud</span>
+            <img
+              src="/logo.png"
+              alt={`${copy.appName} logo`}
+              className="logo"
+            />
           </div>
         </header>
         {!isChatActive ? (
           <section className="greeting">
             <div className="greeting-title">
-              <span className="spark" aria-hidden="true" />
+              <img
+                src="/icon.png"
+                alt={`${copy.appName} icon`}
+                className="icon"
+                style={{ width: 48, height: 48 }}
+              />
               <h1 className="headline" aria-label={`Hey there, ${nickname}`}>
-                Hey there, {nickname}
+                hey there, {nickname}
               </h1>
             </div>
             <p className="tagline">{tagline}</p>
@@ -149,7 +157,9 @@ function App() {
                 className="btn danger"
                 onClick={() => {
                   if (
-                    window.confirm(`${copy.clearHistory.title}\n\n${copy.clearHistory.body}`)
+                    window.confirm(
+                      `${copy.clearHistory.title}\n\n${copy.clearHistory.body}`
+                    )
                   ) {
                     clearAllThreads(true);
                     closeModals();
@@ -191,7 +201,9 @@ function App() {
                   onChange={() =>
                     setChaosMode((v) => {
                       const next = !v;
-                      showToast(next ? copy.toasts.chaosOn : copy.toasts.chaosOff);
+                      showToast(
+                        next ? copy.toasts.chaosOn : copy.toasts.chaosOff
+                      );
                       return next;
                     })
                   }
@@ -213,11 +225,11 @@ function App() {
           <div
             className="modal"
             role="dialog"
-            aria-label="About Clud"
+            aria-label={`About ${copy.appName}`}
             onClick={(e) => e.stopPropagation()}
           >
             <header className="modal-header">
-              <h2>About Clud</h2>
+              <h2>About {copy.appName}</h2>
               <button
                 className="icon-btn"
                 aria-label="Close"

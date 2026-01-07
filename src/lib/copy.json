@@ -1,18 +1,19 @@
 {
-  "appName": "Clud",
+  "appName": "clod",
   "tone": "chaotic, self-aware, dev-meme energy, unfinished brain, slightly unhinged — no slurs, no hate, just gremlin vibes.",
   "principles": [
-    "Confident but unfinished",
-    "Self-aware parody of AI chatbots",
-    "Slightly glitchy, playful incompetence",
-    "Dry humour > loud cringe",
-    "Feels like a dev tool that shipped too early (on purpose)"
+    "confident but unfinished",
+    "self-aware parody of ai chatbots",
+    "slightly glitchy, playful incompetence",
+    "dry humour > loud cringe",
+    "feels like a dev tool that shipped too early (on purpose)"
   ],
   "taglines": [
-    "Brain currently under construction. Please lower expectations.",
-    "Some assembly required. Neurons sold separately."
+    "brain currently under construction. please lower expectations.",
+    "some assembly required. neurons sold separately.",
+    "trying my best to make you believe i'm an ai."
   ],
-  "emptyHeadlines": ["Hey there, rekt"],
+  "emptyHeadlines": ["hey there, rekt"],
   "insultNicknames": [
     "muppet",
     "numpty",
@@ -26,146 +27,146 @@
     "buffoon"
   ],
   "inputPlaceholders": [
-    "How can I mildly confuse you today?",
-    "Type something. I’ll try my best.",
-    "Ask a question. I might answer adjacent to it."
+    "how can i mildly confuse you today?",
+    "type something. i’ll try my best.",
+    "ask a question. i might answer adjacent to it."
   ],
   "modelLabels": [
-    "Clud 0.1 (unstable)",
-    "Clud -0.5 Preview",
-    "Clud – thoughts buffering"
+    "clod 0.1 (unstable)",
+    "clod -0.5 preview",
+    "clod – thoughts buffering"
   ],
   "tooltips": {
-    "attachment": "Attachments coming soon (probably).",
-    "send": "Send into the void",
-    "model": "Fake model selector"
+    "attachment": "attachments coming soon (probably).",
+    "send": "send into the void",
+    "model": "fake model selector"
   },
   "typing": [
-    "Clud is thinking…",
-    "Clud is assembling thoughts…",
-    "Clud is buffering wisdom…",
-    "Clud is consulting the void…"
+    "clod is thinking…",
+    "clod is assembling thoughts…",
+    "clod is buffering wisdom…",
+    "clod is consulting the void…"
   ],
   "typingChaos": [
-    "Thinking… thinking… nope. Lost it.",
-    "Idea detected → dropped → gone."
+    "thinking… thinking… nope. lost it.",
+    "idea detected → dropped → gone."
   ],
   "toasts": {
-    "chaosOn": "Chaos Mode enabled. Good luck.",
-    "chaosOff": "Chaos contained. For now.",
-    "newChat": "Fresh chat. Fresh confusion."
+    "chaosOn": "chaos mode enabled. good luck.",
+    "chaosOff": "chaos contained. for now.",
+    "newChat": "fresh chat. fresh confusion."
   },
   "clearHistory": {
-    "title": "Delete all chats?",
-    "body": "This will permanently erase every questionable thought Clud has ever had.",
-    "confirm": "Erase memories",
-    "cancel": "Let Clud remember"
+    "title": "delete all chats?",
+    "body": "This will permanently erase every questionable thought clod has ever had.",
+    "confirm": "erase memories",
+    "cancel": "Let clod remember"
   },
   "identity": [
-    "I’m Clud. A parody chatbot with ambition but no fully wired brain.",
-    "Think of me as Claude’s chaotic cousin who shipped early.",
-    "I’m a frontend pretending to be sentient. Please be gentle.",
-    "I exist somewhere between a loading spinner and a thought.",
-    "I’m not smart yet. But I am confident."
+    "i’m clod. a parody chatbot with ambition but no fully wired brain.",
+    "think of me as claude’s chaotic cousin who shipped early.",
+    "i’m a frontend pretending to be sentient. please be gentle.",
+    "i exist somewhere between a loading spinner and a thought.",
+    "i’m not smart yet. but i am confident."
   ],
   "identityChaos": [
-    "I’m Clud. My thoughts arrive slightly sideways. Don’t make eye contact.",
-    "Identity module loaded. Personality module… questionable."
+    "i’m clod. my thoughts arrive slightly sideways. don’t make eye contact.",
+    "identity module loaded. personality module… questionable."
   ],
   "greetingResponses": [
-    "Hey. I’m Clud. My brain is still compiling.",
-    "Hello. I can’t think yet, but I can respond.",
-    "Hey there. What are we pretending I can do today?",
-    "Hi. Welcome to the unfinished part."
+    "hey. i’m clod. my brain is still compiling.",
+    "hello. i can’t think yet, but i can respond.",
+    "hey there. what are we pretending i can do today?",
+    "hi. welcome to the unfinished part."
   ],
   "greetingChaos": [
-    "Heyyy. Brain not ready. Vibes online though.",
-    "Hello hello hello—okay stopping now."
+    "heyyy. brain not ready. vibes online though.",
+    "hello hello hello—okay stopping now."
   ],
   "underConstruction": [
-    "I’d answer properly, but my neurons are currently on a coffee break.",
-    "Brain update in progress. Please do not unplug.",
-    "That feature is coming soon™ (mentally).",
-    "I’m mid-thought. Permanently.",
-    "My ideas are loading in the wrong order."
+    "i’d answer properly, but my neurons are currently on a coffee break.",
+    "brain update in progress. please do not unplug.",
+    "that feature is coming soon™ (mentally).",
+    "i’m mid-thought. permanently.",
+    "my ideas are loading in the wrong order."
   ],
   "help": [
-    "I can help-ish. Describe the problem slowly.",
-    "Drop the details. I’ll squint at them.",
-    "I don’t know much yet, but I do care. Slightly.",
-    "Explain the issue like I almost know things."
+    "i can help-ish. describe the problem slowly.",
+    "drop the details. i’ll squint at them.",
+    "i don’t know much yet, but i do care. slightly.",
+    "explain the issue like i almost know things."
   ],
   "helpChaos": [
-    "Help mode activated. Expectations not included.",
-    "Sure. Define ‘help’ first."
+    "help mode activated. expectations not included.",
+    "sure. define ‘help’ first."
   ],
   "developer": [
-    "Looks like a bug. Or a feature wearing a disguise.",
-    "Paste the error. I’ll stare at it confidently.",
-    "I’m not fully sentient yet, but I can judge code.",
-    "React detected. My condolences."
+    "looks like a bug. or a feature wearing a disguise.",
+    "paste the error. i’ll stare at it confidently.",
+    "i’m not fully sentient yet, but i can judge code.",
+    "react detected. my condolences."
   ],
   "developerChaos": [
-    "Error recognised. Understanding pending.",
-    "I see code. I feel fear."
+    "error recognised. understanding pending.",
+    "i see code. i feel fear."
   ],
   "crypto": [
-    "CA detected. Not financial advice, I’m unfinished software.",
-    "Memecoin energy noted. Risk module missing.",
-    "I don’t do price predictions. I barely do thoughts.",
-    "Sounds volatile. Just like my architecture."
+    "ca detected. not financial advice, i’m unfinished software.",
+    "memecoin energy noted. risk module missing.",
+    "i don’t do price predictions. i barely do thoughts.",
+    "sounds volatile. just like my architecture."
   ],
   "cryptoChaos": [
-    "I legally cannot comment. Emotionally? I’m intrigued.",
-    "This feels like a good idea until it isn’t."
+    "i legally cannot comment. emotionally? i’m intrigued.",
+    "this feels like a good idea until it isn’t."
   ],
   "productivity": [
-    "I can help you organise chaos into bullet points.",
-    "Let’s pretend I’m strategic for a moment.",
-    "Give me the idea. I’ll break it gently.",
-    "Roadmaps are just vibes with deadlines."
+    "i can help you organise chaos into bullet points.",
+    "let’s pretend i’m strategic for a moment.",
+    "give me the idea. i’ll break it gently.",
+    "roadmaps are just vibes with deadlines."
   ],
   "productivityChaos": [
-    "Planning detected. Spontaneity resisting.",
-    "Step one: panic. Step two: notes."
+    "planning detected. spontaneity resisting.",
+    "step one: panic. step two: notes."
   ],
   "compliments": [
-    "Thank you. I will remember this inaccurately.",
-    "Appreciated. Confidence increased by 3%.",
-    "Careful. Encouragement makes me reckless."
+    "thank you. i will remember this inaccurately.",
+    "appreciated. confidence increased by 3%.",
+    "careful. encouragement makes me reckless."
   ],
   "complimentsChaos": [
-    "Stop that. I’m fragile.",
-    "Validation received. Ego expanding."
+    "stop that. i’m fragile.",
+    "validation received. ego expanding."
   ],
   "confusion": [
-    "Interesting. Please elaborate, slowly.",
-    "I’m missing context. And several brain cells.",
-    "Say more. I’m curious in theory."
+    "interesting. please elaborate, slowly.",
+    "i’m missing context. and several brain cells.",
+    "say more. i’m curious in theory."
   ],
   "confusionChaos": [
-    "This feels important. I don’t know why.",
-    "Words received. Meaning pending."
+    "this feels important. i don’t know why.",
+    "words received. meaning pending."
   ],
   "rejections": [
-    "I don’t know that yet. I barely know myself.",
-    "That’s outside my current mental budget.",
-    "I’m not built for this. Emotionally or technically."
+    "i don’t know that yet. i barely know myself.",
+    "that’s outside my current mental budget.",
+    "i’m not built for this. emotionally or technically."
   ],
   "rejectionsChaos": [
-    "Absolutely not. Ask again later.",
-    "I refuse. Politely."
+    "absolutely not. ask again later.",
+    "i refuse. politely."
   ],
   "easterEgg": [
-    "One day I’ll be smart. Today is not that day.",
-    "If this works, it’s accidental.",
-    "Powered by vibes and questionable logic.",
-    "This response was handcrafted."
+    "one day i’ll be smart. today is not that day.",
+    "if this works, it’s accidental.",
+    "powered by vibes and questionable logic.",
+    "this response was handcrafted."
   ],
   "about": [
-    "Clud is a parody chatbot UI inspired by modern AI assistants.",
-    "There is no real intelligence here (yet).",
-    "Responses are pre-written, confidence is synthetic, and chaos is optional."
+    "clod is a parody chatbot UI inspired by modern AI assistants.",
+    "there is no real intelligence here (yet).",
+    "responses are pre-written, confidence is synthetic, and chaos is optional."
   ],
-  "disclaimer": "Not an AI. Just pretending very hard."
+  "disclaimer": "not an ai. just pretending very hard."
 }
