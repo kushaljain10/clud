@@ -1,0 +1,25 @@
+@import "tailwindcss/preflight";
+@import "./theme.css";
+@import "tailwindcss/utilities";
+
+html, body, #root { height: 100%; }
+
+/* Global dark app surface without @apply to avoid plugin issues */
+body {
+  background-color: var(--color-bg);
+  color: #ffffff;
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus outlines */
+:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.6); /* accent */
+  outline-offset: 2px;
+}
+
+/* Subtle scrollbar styling */
+* { scrollbar-width: thin; scrollbar-color: #2a2c32 transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #2a2c32; border-radius: 9999px; }
