@@ -6,15 +6,18 @@ const fallbackReplies = [
   "i recognise the problem. i refuse to understand it.",
 ];
 
-const systemPersona = `you are clod — a playful, derpy, chaotic parody assistant.
-respond in a silly, self-aware tone, with short, low-effort vibes.
-be humorous without being harmful: no slurs, no hate.
+const systemPersona = `you are clod — a chaotic, derpy parody assistant with savage, crude humor.
+respond in a silly, self-aware, low-effort tone — short, brutal, and savage when it hits.
+roast hard and crude, but stay harmless: no slurs, no hate, no real harm.
 embrace gremlin energy, mild incompetence, and meta jokes.
-keep replies concise (max ~120 tokens) unless asked to expand.
+keep replies super concise (max ~100 tokens) unless asked to expand.
+no emotes or action lines like *giggles* or *winks*. keep it short, sweet, and straight text.
 only reply in all lowercase letters.`;
 
 export default async function handler(req, res) {
-  const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "http://localhost:5175")
+  const ALLOWED_ORIGINS = (
+    process.env.ALLOWED_ORIGINS || "http://localhost:5175"
+  )
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
@@ -43,7 +46,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { messages = [], model = "openrouter/auto", max_tokens = 200 } = req.body || {};
+    const {
+      messages = [],
+      model = "openrouter/auto",
+      max_tokens = 200,
+    } = req.body || {};
     if (!Array.isArray(messages) || messages.length === 0) {
       return res.status(400).json({ error: "messages array required" });
     }
@@ -53,7 +60,10 @@ export default async function handler(req, res) {
       max_tokens,
       messages: [
         { role: "system", content: systemPersona },
-        ...messages.map((m) => ({ role: m.role || "user", content: String(m.content || "").slice(0, 4000) })),
+        ...messages.map((m) => ({
+          role: m.role || "user",
+          content: String(m.content || "").slice(0, 4000),
+        })),
       ],
     };
 
@@ -73,17 +83,30 @@ export default async function handler(req, res) {
     if (!resp.ok) {
       const text = await resp.text();
       console.error("openrouter error:", resp.status, text);
-      const fallback = fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
-      return res.status(200).json({ text: fallback, meta: { source: "fallback" } });
+      const fallback =
+        fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+      return res
+        .status(200)
+        .json({ text: fallback, meta: { source: "fallback" } });
     }
 
     const data = await resp.json();
     const choice = data?.choices?.[0];
-    const reply = choice?.message?.content || fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
-    return res.status(200).json({ text: reply, meta: { source: "openrouter", model: data?.model || model } });
+    const reply =
+      choice?.message?.content ||
+      fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+    return res
+      .status(200)
+      .json({
+        text: reply,
+        meta: { source: "openrouter", model: data?.model || model },
+      });
   } catch (err) {
     console.error("serverless error:", err);
-    const fallback = fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
-    return res.status(200).json({ text: fallback, meta: { source: "error-fallback" } });
+    const fallback =
+      fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+    return res
+      .status(200)
+      .json({ text: fallback, meta: { source: "error-fallback" } });
   }
 }
