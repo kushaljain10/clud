@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { InputCard } from './components/InputCard'
 import { ChatThread } from './components/ChatThread'
 import { ToastHost } from './components/Toast'
@@ -27,6 +27,24 @@ function App() {
 
   const contentRef = useRef(null)
 
+  const nicknames = [
+    'silly goose',
+    'chaos goblin',
+    'keyboard warrior',
+    'space cadet',
+    'tryhard',
+    'gremlin',
+    'goober',
+    'clown',
+    'meme machine',
+    'rookie'
+  ]
+
+  const nickname = useMemo(() => {
+    const i = Math.floor(Math.random() * nicknames.length)
+    return nicknames[i]
+  }, [])
+
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.scrollTop = contentRef.current.scrollHeight
@@ -46,7 +64,7 @@ function App() {
           <section className="greeting">
             <div className="greeting-title">
               <span className="spark" aria-hidden="true" />
-              <h1 className="headline" aria-label="Hey there, rekt">Hey there, rekt</h1>
+              <h1 className="headline" aria-label={`Hey there, ${nickname}`}>Hey there, {nickname}</h1>
             </div>
             <p className="tagline">Brain currently under construction. Please lower expectations.</p>
             <div className="center-input" role="search">
@@ -73,7 +91,7 @@ function App() {
         )}
 
         <footer className="contract-bar" aria-label="Contract address">
-          <span className="contract-text">ABC123456</span>
+          <span className="contract-text">CA: ABC123456</span>
           <button
             className="copy-btn"
             aria-label="Copy contract address"
