@@ -1,40 +1,38 @@
-# Clud – the slightly unhinged chatbot (parody)
+# Clud – Chaotic Chat Parody (React + Vite)
 
-Clud is a front-end only parody of a Claude-style chatbot. Dark, minimal UI; chaotic-but-readable responses; no backend.
+Clud is a parody of a Claude-style chatbot UI: dark, minimal, and slightly unhinged. No backend, no real AI, just rule‑based mock responses with occasional glitch flavour.
 
 Tech
 - React + Vite
-- Tailwind CSS
-- lucide-react icons
+- No Tailwind; plain CSS with a premium dark theme
+- Icons via `lucide-react`
 
 Features
-- Greeting state with centred input card and playful spark icon
-- Sidebar with New Chat, History, Settings, About, and Chaos toggle
-- Threads persisted to `localStorage` with titles derived from first user message
-- Typing indicator and rule-based responses via `respondTo(message, chaos)`
-- Settings and About modals; “attachments coming soon” toast
+- Greeting state with central rounded input card
+- Left sidebar with New Chat, History, Settings, About, and Chaos toggle
+- Chat threads with user/assistant bubbles, typing indicator, smooth scroll
+- LocalStorage history with thread titles from first message
+- History modal with load and Clear All (with confirmation)
+- Settings and About panels
+- Accessibility: aria labels, focus outlines, reasonable contrast
 
 Install
-```bash
+```
 npm install
 ```
 
 Run (dev)
-```bash
+```
 npm run dev
 ```
-This starts Vite and prints a local URL.
+Open the local URL shown in the terminal (usually `http://localhost:5174/`).
 
 Build
-```bash
-npm run build
 ```
-Then preview the production build:
-```bash
-npm run preview
+npm run build
 ```
 
 Notes
-- No backend. All responses are mock and rule-based.
-- Chaos Mode injects playful “glitches” into responses.
-- Keep expectations low; the brain is still compiling.
+- This is a parody project. Keep humour friendly and avoid hateful content.
+- Chaos Mode adds playful glitch text. It’s still readable.
+- There is no backend; responses are mocked via simple keyword triggers.

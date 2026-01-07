@@ -1,60 +1,33 @@
-import { MessageSquarePlus, History, Settings, HelpCircle, Zap } from 'lucide-react'
+import { Plus, History, Settings, HelpCircle, Zap } from 'lucide-react'
 
-export default function Sidebar({
-  onNewChat,
-  onOpenHistory,
-  onOpenSettings,
-  onOpenAbout,
-  chaosMode,
-  setChaosMode,
-}) {
+export function Sidebar({ chaosMode, onToggleChaos, onNewChat, onOpenHistory, onOpenSettings, onOpenAbout, threads, onSelectThread }) {
   return (
-    <aside className="fixed left-0 top-0 bottom-0 w-16 bg-panel/70 backdrop-blur border-r border-border flex flex-col items-center justify-between py-4">
-      <div className="flex flex-col items-center gap-3">
-        <button
-          aria-label="New chat"
-          className="p-2 rounded-xl hover:bg-white/5 transition"
-          onClick={onNewChat}
-        >
-          <MessageSquarePlus size={20} />
+    <aside className="sidebar" aria-label="Left navigation">
+      <div className="sidebar-top">
+        <button className="icon-btn" aria-label="New chat" onClick={onNewChat}>
+          <Plus size={18} />
         </button>
-        <button
-          aria-label="History"
-          className="p-2 rounded-xl hover:bg-white/5 transition"
-          onClick={onOpenHistory}
-        >
-          <History size={20} />
+        <button className="icon-btn" aria-label="History" onClick={onOpenHistory}>
+          <History size={18} />
         </button>
-        <button
-          aria-label="Settings"
-          className="p-2 rounded-xl hover:bg-white/5 transition"
-          onClick={onOpenSettings}
-        >
-          <Settings size={20} />
+        <button className="icon-btn" aria-label="Settings" onClick={onOpenSettings}>
+          <Settings size={18} />
         </button>
-        <button
-          aria-label="About"
-          className="p-2 rounded-xl hover:bg-white/5 transition"
-          onClick={onOpenAbout}
-        >
-          <HelpCircle size={20} />
+        <button className="icon-btn" aria-label="About" onClick={onOpenAbout}>
+          <HelpCircle size={18} />
         </button>
-        <button
-          aria-label="Toggle Chaos Mode"
-          className={`p-2 rounded-xl transition ${chaosMode ? 'bg-accent/20 text-accent' : 'hover:bg-white/5'}`}
-          onClick={() => setChaosMode?.(!chaosMode)}
-        >
-          <Zap size={20} />
-        </button>
-      </div>
-      <div className="flex flex-col items-center">
-        <div
-          aria-label="Avatar"
-          className="w-10 h-10 rounded-full bg-white/5 border border-border flex items-center justify-center text-sm"
-        >
-          KJ
+
+        <div className="toggle-row" role="group" aria-label="Chaos mode">
+          <button className={`icon-btn ${chaosMode ? 'active' : ''}`} aria-pressed={chaosMode} aria-label="Chaos mode" onClick={onToggleChaos}>
+            <Zap size={18} />
+          </button>
+          <span className="toggle-label">Chaos</span>
         </div>
       </div>
+
+      <div className="sidebar-bottom" aria-label="Avatar">
+        <div className="avatar">KJ</div>
+      </div>
     </aside>
-  );
+  )
 }

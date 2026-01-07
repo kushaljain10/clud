@@ -1,17 +1,18 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-export default function Toast({ id, message, onDone, duration = 2200 }) {
+let setToastFn = null
+
+export function ToastHost() {
+  const [msg, setMsg] = useState(null)
   useEffect(() => {
-    const t = setTimeout(() => onDone?.(id), duration);
-    return () => clearTimeout(t);
-  }, [id, onDone, duration]);
+    setToastFn = (m) => {
+      setMsg(m)
+      setTimeout(() => setMsg(null), 1800)
+    }
+  }, [])
+  return msg ? <div className="toast" role="status">{msg}</div> : null
+}
 
-  return (
-    <div
-      role="status"
-      className="pointer-events-auto select-none rounded-xl bg-panel border border-border px-3 py-2 text-sm shadow-soft animate-fadeInUp"
-    >
-      {message}
-    </div>
-  );
+export function showToast(message) {
+  if (setToastFn) setToastFn(message)
 }
